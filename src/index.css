@@ -141,11 +141,15 @@
   }
 
   .team-card {
-    @apply relative overflow-hidden rounded-lg group cursor-pointer;
+    @apply relative overflow-hidden rounded-lg cursor-pointer;
   }
 
   .team-card-overlay {
-    @apply absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-6;
+    @apply absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent opacity-0 transition-all duration-500 flex flex-col justify-end p-6;
+  }
+
+  .team-card:hover .team-card-overlay {
+    @apply opacity-100;
   }
 }
 
