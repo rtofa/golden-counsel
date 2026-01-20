@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { MapPin, Phone, Mail, Facebook, Instagram, Linkedin, ArrowRight } from "lucide-react";
+import logoSantarosa from "@/assets/logo-santarosa.jpg";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -13,7 +14,7 @@ const Footer = () => {
             Precisa de orientação <span className="text-primary">jurídica</span>?
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto mb-8">
-            Nossa equipe está pronta para analisar seu caso e oferecer a melhor estratégia jurídica para você.
+            Nossa equipe está pronta para analisar seu caso com a excelência e ética que caracterizam o escritório SantaRosa Mello.
           </p>
           <Link to="/contato" className="btn-primary text-lg px-8 py-4 group">
             Falar com um Especialista
@@ -28,16 +29,14 @@ const Footer = () => {
           {/* Brand */}
           <div className="lg:col-span-1">
             <Link to="/" className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 bg-primary rounded flex items-center justify-center">
-                <span className="text-primary-foreground font-serif font-bold text-xl">A</span>
-              </div>
+              <img src={logoSantarosa} alt="SantaRosa Mello" className="h-12 w-auto" />
               <div>
-                <span className="font-serif text-xl font-semibold text-foreground">ADVOCACIA</span>
-                <p className="text-xs text-muted-foreground tracking-widest">EXCELÊNCIA JURÍDICA</p>
+                <span className="font-serif text-lg font-semibold text-foreground">SantaRosa Mello</span>
+                <p className="text-xs text-muted-foreground tracking-widest">ADVOGADOS E ASSOCIADOS</p>
               </div>
             </Link>
             <p className="text-muted-foreground text-sm leading-relaxed mb-6">
-              Há mais de 10 anos oferecendo soluções jurídicas estratégicas com ética, dedicação e excelência no atendimento.
+              Justiça Refinada e Equilíbrio do Legado. Combinamos tradição, autoridade e excelência com uma abordagem personalizada e ética.
             </p>
             <div className="flex gap-4">
               <a href="#" className="w-10 h-10 bg-card border border-border rounded-lg flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-all">
@@ -98,8 +97,8 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-primary shrink-0" />
-                <a href="mailto:contato@advocacia.com.br" className="text-muted-foreground hover:text-primary text-sm transition-colors">
-                  contato@advocacia.com.br
+                <a href="mailto:contato@santarosamello.adv.br" className="text-muted-foreground hover:text-primary text-sm transition-colors">
+                  contato@santarosamello.adv.br
                 </a>
               </li>
             </ul>
@@ -111,7 +110,7 @@ const Footer = () => {
       <div className="border-t border-border">
         <div className="container mx-auto px-6 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
-            <p>© {currentYear} Advocacia. Todos os direitos reservados.</p>
+            <p>© {currentYear} SantaRosa Mello Advogados e Associados. Todos os direitos reservados.</p>
             <div className="flex gap-6">
               <Link to="/privacidade" className="hover:text-primary transition-colors">Política de Privacidade</Link>
               <Link to="/termos" className="hover:text-primary transition-colors">Termos de Uso</Link>

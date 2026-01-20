@@ -9,24 +9,24 @@ const Sobre = () => {
   const values = [
     {
       icon: Award,
-      title: "Excelência",
-      description: "Buscamos os melhores resultados em cada caso, com dedicação e profissionalismo.",
+      title: "Excelência & Reconhecimento",
+      description: "As estrelas da nossa marca representam os Sócios Fundadores, sendo as guias da ética e da estratégia do escritório.",
     },
     {
       icon: Users,
-      title: "Humanização",
-      description: "Tratamos cada cliente de forma única, entendendo suas necessidades específicas.",
+      title: "Justiça & Equilíbrio",
+      description: "A balança representa nosso compromisso inabalável com a justiça e a busca pelo equilíbrio ideal em cada contenda legal.",
     },
     {
       icon: Target,
-      title: "Estratégia",
-      description: "Desenvolvemos soluções jurídicas personalizadas para cada situação.",
+      title: "Tradição & Legado",
+      description: "O brasão confere o senso de legado e tradição sólida do escritório, representando proteção jurídica e autoridade no campo do Direito.",
     },
   ];
 
   const team = [
-    { name: "Dr. Ricardo Almeida", role: "Sócio Fundador - Direito Civil", image: team1 },
-    { name: "Dra. Marina Santos", role: "Sócia - Direito Empresarial", image: team2 },
+    { name: "Dr. Santa Rosa", role: "Sócio Fundador - Direito Civil", image: team1 },
+    { name: "Dra. Mello", role: "Sócia Fundadora - Direito Empresarial", image: team2 },
     { name: "Dr. Lucas Ferreira", role: "Associado - Direito Criminal", image: team3 },
   ];
 
@@ -35,9 +35,9 @@ const Sobre = () => {
       {/* Hero */}
       <section className="pt-40 pb-20 bg-secondary">
         <div className="container mx-auto px-6">
-          <div className="section-label mb-4">A Firma</div>
+          <div className="section-label mb-4">SantaRosa Mello Advogados e Associados</div>
           <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-semibold max-w-4xl">
-            Tradição e <span className="text-primary">Inovação</span> em Advocacia
+            Justiça Refinada e o <span className="text-primary">Equilíbrio do Legado</span>
           </h1>
         </div>
       </section>
@@ -51,13 +51,13 @@ const Sobre = () => {
             </div>
             <div>
               <h2 className="font-serif text-3xl md:text-4xl font-semibold mb-6">
-                Nossa <span className="text-primary">História</span>
+                Nosso <span className="text-primary">Conceito</span>
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                Fundado há mais de uma década, nosso escritório nasceu da visão de oferecer serviços jurídicos de excelência, combinando conhecimento técnico aprofundado com atendimento humanizado.
+                O conceito central da marca SantaRosa Mello Advogados e Associados é a "Justiça Refinada e o Equilíbrio do Legado". Este conceito se apoia na fusão dos elementos tradicionais da advocacia com um toque de sofisticação e uma referência pessoal forte ao nome "Santa Rosa".
               </p>
               <p className="text-muted-foreground leading-relaxed mb-8">
-                Ao longo dos anos, construímos uma reputação sólida baseada em resultados consistentes, ética inabalável e compromisso genuíno com os interesses de nossos clientes.
+                A marca projeta autoridade, tradição, excelência e uma abordagem personalizada e ética. Os sócios fundadores, Mello e Santa Rosa, são as guias da ética e da estratégia do escritório.
               </p>
               <ul className="space-y-3">
                 {["Mais de 500 casos resolvidos", "98% de satisfação dos clientes", "Equipe multidisciplinar especializada", "Atendimento em todo o território nacional"].map((item, i) => (

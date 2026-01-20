@@ -2,12 +2,12 @@ import { Star } from "lucide-react";
 
 const MarqueeSection = () => {
   const items = [
-    "EXCELÊNCIA",
-    "ÉTICA",
-    "RESULTADOS",
-    "CONFIANÇA",
-    "DEDICAÇÃO",
     "JUSTIÇA",
+    "EQUILÍBRIO",
+    "EXCELÊNCIA",
+    "TRADIÇÃO",
+    "LEGADO",
+    "ÉTICA",
   ];
 
   return (

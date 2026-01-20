@@ -1,4 +1,4 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Scale, Star, Flower2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import heroJustice from "@/assets/hero-justice.jpg";
 
@@ -13,17 +13,33 @@ const HeroSection = () => {
           {/* Left Content */}
           <div className="animate-slide-up">
             <div className="section-label mb-6">
-              Excelência em Advocacia
+              Justiça Refinada e Equilíbrio do Legado
             </div>
             
             <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight mb-6">
-              Somos Especialistas em{" "}
-              <span className="text-primary">Soluções Jurídicas</span>
+              O Equilíbrio da Lei com a{" "}
+              <span className="text-primary">Excelência da Liderança</span>
             </h1>
             
             <p className="text-lg text-muted-foreground leading-relaxed mb-8 max-w-xl">
-              Nossa equipe é movida pela paixão por justiça e pelo compromisso de manter os mais altos padrões de integridade profissional em cada caso.
+              A marca SantaRosa Mello projeta autoridade, tradição, excelência e uma abordagem personalizada e ética. Nossa equipe é guiada pela paixão por justiça e pelo compromisso com os mais altos padrões de integridade profissional.
             </p>
+
+            {/* Brand Values Icons */}
+            <div className="flex flex-wrap gap-6 mb-8">
+              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                <Scale className="w-5 h-5 text-primary" />
+                <span>Justiça & Equilíbrio</span>
+              </div>
+              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                <Star className="w-5 h-5 text-primary" />
+                <span>Excelência & Reconhecimento</span>
+              </div>
+              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                <Flower2 className="w-5 h-5 text-primary" />
+                <span>Tradição & Legado</span>
+              </div>
+            </div>
             
             <div className="flex flex-wrap gap-4">
               <Link to="/contato" className="btn-primary group text-lg">
@@ -44,7 +60,7 @@ const HeroSection = () => {
               <div className="absolute -inset-4 bg-gradient-to-br from-primary/20 via-transparent to-transparent rounded-full blur-3xl" />
               <img
                 src={heroJustice}
-                alt="Estátua da Justiça"
+                alt="Estátua da Justiça - SantaRosa Mello Advogados"
                 className="relative z-10 w-full max-w-lg mx-auto rounded-lg shadow-2xl"
               />
             </div>
@@ -53,11 +69,11 @@ const HeroSection = () => {
             <div className="absolute bottom-8 right-0 md:right-8 bg-card border border-border rounded-lg p-6 shadow-xl z-20 animate-slide-up" style={{ animationDelay: "0.3s" }}>
               <div className="flex items-center gap-4">
                 <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center">
-                  <span className="text-primary font-serif text-2xl font-bold">100%</span>
+                  <Scale className="w-8 h-8 text-primary" />
                 </div>
                 <div>
-                  <p className="text-foreground font-semibold">Atendimento</p>
-                  <p className="text-primary text-sm">de Excelência</p>
+                  <p className="text-foreground font-semibold">Confiança</p>
+                  <p className="text-primary text-sm">& Ética</p>
                 </div>
               </div>
             </div>
