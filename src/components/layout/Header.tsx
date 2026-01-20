@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { MapPin, Mail, Menu, X, ArrowRight } from "lucide-react";
 import { useState, useEffect } from "react";
+import logoSantarosa from "@/assets/logo-santarosa.jpg";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -28,16 +29,16 @@ const Header = () => {
       <div className="border-b border-border/50">
         <div className="container mx-auto px-6 py-2 flex flex-wrap justify-between items-center text-sm">
           <p className="text-muted-foreground hidden md:block">
-            Acompanhamos todas as etapas do seu caso
+            O Equilíbrio da Lei com a Excelência da Liderança
           </p>
           <div className="flex items-center gap-6 text-muted-foreground ml-auto">
             <a href="#" className="flex items-center gap-2 hover:text-primary transition-colors">
               <MapPin className="w-4 h-4 text-primary" />
               <span className="hidden sm:inline">Av. Paulista, 1000 - São Paulo</span>
             </a>
-            <a href="mailto:contato@advocacia.com.br" className="flex items-center gap-2 hover:text-primary transition-colors">
+            <a href="mailto:contato@santarosamello.adv.br" className="flex items-center gap-2 hover:text-primary transition-colors">
               <Mail className="w-4 h-4 text-primary" />
-              <span className="hidden sm:inline">contato@advocacia.com.br</span>
+              <span className="hidden sm:inline">contato@santarosamello.adv.br</span>
             </a>
           </div>
         </div>
@@ -48,12 +49,10 @@ const Header = () => {
         <div className="flex justify-between items-center">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-primary rounded flex items-center justify-center">
-              <span className="text-primary-foreground font-serif font-bold text-xl">A</span>
-            </div>
-            <div>
-              <span className="font-serif text-xl font-semibold text-foreground">ADVOCACIA</span>
-              <p className="text-xs text-muted-foreground tracking-widest">EXCELÊNCIA JURÍDICA</p>
+            <img src={logoSantarosa} alt="SantaRosa Mello" className="h-12 w-auto" />
+            <div className="hidden sm:block">
+              <span className="font-serif text-lg font-semibold text-foreground">SantaRosa Mello</span>
+              <p className="text-xs text-muted-foreground tracking-widest">ADVOGADOS E ASSOCIADOS</p>
             </div>
           </Link>
 
