@@ -32,9 +32,12 @@ const Header = () => {
             O Equilíbrio da Lei com a Excelência da Liderança
           </p>
           <div className="flex items-center gap-6 text-muted-foreground ml-auto">
+            <a href="tel:+551433243605" className="flex items-center gap-2 hover:text-primary transition-colors">
+              <span className="hidden sm:inline">(14) 3324-3605</span>
+            </a>
             <a href="#" className="flex items-center gap-2 hover:text-primary transition-colors">
               <MapPin className="w-4 h-4 text-primary" />
-              <span className="hidden sm:inline">Av. Paulista, 1000 - São Paulo</span>
+              <span className="hidden sm:inline">Rua Arlindo Luz, 633 - Ourinhos/SP</span>
             </a>
             <a href="mailto:contato@santarosamello.adv.br" className="flex items-center gap-2 hover:text-primary transition-colors">
               <Mail className="w-4 h-4 text-primary" />
