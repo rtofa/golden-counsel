@@ -3,7 +3,6 @@ import { CheckCircle, Award, Users, Target } from "lucide-react";
 import lawyerConsulting from "@/assets/lawyer-consulting.jpg";
 import team1 from "@/assets/team-1.jpg";
 import team2 from "@/assets/team-2.jpg";
-import team3 from "@/assets/team-3.jpg";
 
 const Sobre = () => {
   const values = [
@@ -25,9 +24,8 @@ const Sobre = () => {
   ];
 
   const team = [
-    { name: "Dr. Santa Rosa", role: "Sócio Fundador - Direito Civil", image: team1 },
-    { name: "Dra. Mello", role: "Sócia Fundadora - Direito Empresarial", image: team2 },
-    { name: "Dr. Lucas Ferreira", role: "Associado - Direito Criminal", image: team3 },
+    { name: "André Luis Camargo Mello", role: "Sócio Fundador", oab: "OAB/SP 170.033", email: "andremello@santarosamello.adv.br", image: team1 },
+    { name: "Eliana Santarosa Mello", role: "Sócia Fundadora", oab: "OAB/SP 185.465", email: "eliana@santarosamello.adv.br", image: team2 },
   ];
 
   return (
@@ -51,16 +49,19 @@ const Sobre = () => {
             </div>
             <div>
               <h2 className="font-serif text-3xl md:text-4xl font-semibold mb-6">
-                Nosso <span className="text-primary">Conceito</span>
+                O <span className="text-primary">Escritório</span>
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                O conceito central da marca SantaRosa Mello Advogados e Associados é a "Justiça Refinada e o Equilíbrio do Legado". Este conceito se apoia na fusão dos elementos tradicionais da advocacia com um toque de sofisticação e uma referência pessoal forte ao nome "Santa Rosa".
+                Com mais de 25 anos de existência, somos um escritório de advocacia de notório respeito, cujo compromisso precípuo é a oferta de serviços jurídicos com padrão de qualidade, excelência e profissionalismo.
+              </p>
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                Com inovação e pioneirismo, o escritório conseguiu aprimorar o intercâmbio entre a academia e a advocacia, com a especialização dos profissionais e no incentivo da busca de novos conhecimentos e aperfeiçoamento contínuo.
               </p>
               <p className="text-muted-foreground leading-relaxed mb-8">
-                A marca projeta autoridade, tradição, excelência e uma abordagem personalizada e ética. Os sócios fundadores, Mello e Santa Rosa, são as guias da ética e da estratégia do escritório.
+                Nossa atuação diversificada e excelência de nossos profissionais oferece assistência em diversas áreas do Direito, permitindo desenvolver relacionamentos de confiança mútua em decisões estratégicas, envolvendo questões legais sofisticadas, complexas ou tecnicamente desafiadoras.
               </p>
               <ul className="space-y-3">
-                {["Mais de 500 casos resolvidos", "98% de satisfação dos clientes", "Equipe multidisciplinar especializada", "Atendimento em todo o território nacional"].map((item, i) => (
+                {["Mais de 25 anos de experiência", "Intercâmbio entre academia e advocacia", "Equipe multidisciplinar especializada", "Atuação em todo o território nacional"].map((item, i) => (
                   <li key={i} className="flex items-center gap-3">
                     <CheckCircle className="w-5 h-5 text-primary" />
                     <span className="text-foreground">{item}</span>
@@ -98,18 +99,27 @@ const Sobre = () => {
       {/* Team */}
       <section className="py-20">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <div className="section-label justify-center mb-4">Equipe</div>
-            <h2 className="font-serif text-3xl md:text-4xl font-semibold">
-              Conheça Nossos <span className="text-primary">Advogados</span>
+          <div className="text-center mb-8">
+            <div className="section-label justify-center mb-4">Profissionais</div>
+            <h2 className="font-serif text-3xl md:text-4xl font-semibold mb-6">
+              Conheça Nossos <span className="text-primary">Sócios</span>
             </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Desde 2001, buscamos os melhores talentos para atender demandas pioneiras e complexas. Nosso foco são as pessoas.
+            </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {team.map((member, i) => (
-              <div key={i} className="text-center">
-                <img src={member.image} alt={member.name} className="w-full aspect-square object-cover rounded-lg mb-4" />
-                <h3 className="font-serif text-xl font-semibold text-primary">{member.name}</h3>
-                <p className="text-muted-foreground text-sm">{member.role}</p>
+              <div key={i} className="card-premium flex flex-col sm:flex-row items-center gap-6">
+                <img src={member.image} alt={member.name} className="w-32 h-32 object-cover rounded-full border-4 border-primary/20" />
+                <div className="text-center sm:text-left">
+                  <h3 className="font-serif text-xl font-semibold text-primary">{member.name}</h3>
+                  <p className="text-foreground font-medium">{member.role}</p>
+                  <p className="text-muted-foreground text-sm mb-2">{member.oab}</p>
+                  <a href={`mailto:${member.email}`} className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                    {member.email}
+                  </a>
+                </div>
               </div>
             ))}
           </div>

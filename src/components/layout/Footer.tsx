@@ -69,7 +69,7 @@ const Footer = () => {
           <div>
             <h3 className="font-serif text-lg font-semibold mb-6 text-foreground">Áreas de Atuação</h3>
             <ul className="space-y-3">
-              {["Direito Civil", "Direito Criminal", "Direito Empresarial", "Direito de Família", "Direito Trabalhista"].map((item) => (
+              {["Direito Civil", "Direito Administrativo", "Direito Empresarial", "Família e Sucessões", "Direito do Trabalho", "Direito Penal", "Direito Tributário"].map((item) => (
                 <li key={item}>
                   <span className="text-muted-foreground text-sm">{item}</span>
                 </li>
@@ -84,15 +84,15 @@ const Footer = () => {
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-primary shrink-0 mt-0.5" />
                 <span className="text-muted-foreground text-sm">
-                  Av. Paulista, 1000<br />
-                  Bela Vista, São Paulo - SP<br />
-                  CEP: 01310-100
+                  Rua Arlindo Luz, 633 - Centro<br />
+                  Ourinhos - SP<br />
+                  CEP: 19900-011
                 </span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-primary shrink-0" />
-                <a href="tel:+551132456789" className="text-muted-foreground hover:text-primary text-sm transition-colors">
-                  (11) 3245-6789
+                <a href="tel:+551433243605" className="text-muted-foreground hover:text-primary text-sm transition-colors">
+                  (14) 3324-3605
                 </a>
               </li>
               <li className="flex items-center gap-3">

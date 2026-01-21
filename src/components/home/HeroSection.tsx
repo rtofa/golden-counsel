@@ -13,16 +13,16 @@ const HeroSection = () => {
           {/* Left Content */}
           <div className="animate-slide-up">
             <div className="section-label mb-6">
-              Justiça Refinada e Equilíbrio do Legado
+              Mais de 25 anos de excelência jurídica
             </div>
             
             <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-semibold leading-tight mb-6">
-              O Equilíbrio da Lei com a{" "}
-              <span className="text-primary">Excelência da Liderança</span>
+              <span className="text-primary">Profissionalismo</span> e Retidão
+              na Prática de Atos da Sua Vida e Empresa
             </h1>
             
             <p className="text-lg text-muted-foreground leading-relaxed mb-8 max-w-xl">
-              A marca SantaRosa Mello projeta autoridade, tradição, excelência e uma abordagem personalizada e ética. Nossa equipe é guiada pela paixão por justiça e pelo compromisso com os mais altos padrões de integridade profissional.
+              Respostas e informações corretas, ética e equilíbrio nos negócios exigem conselhos de profissionais experientes, com conhecimento jurídico e capacidade técnica para orientar decisões na sua vida pessoal e na sua empresa.
             </p>
 
             {/* Brand Values Icons */}

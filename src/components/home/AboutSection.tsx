@@ -3,10 +3,10 @@ import lawyerConsulting from "@/assets/lawyer-consulting.jpg";
 
 const AboutSection = () => {
   const highlights = [
-    "Mais de 10 anos de experiência no mercado",
-    "Atendimento humanizado e estratégico",
-    "Soluções sob medida para cada caso",
-    "Acompanhamento em todas as etapas processuais",
+    "Mais de 25 anos de existência",
+    "Intercâmbio entre academia e advocacia",
+    "Profissionais especializados e em aperfeiçoamento contínuo",
+    "Abordagem integrada e equipes adaptadas a cada projeto",
   ];
 
   return (
@@ -31,11 +31,14 @@ const AboutSection = () => {
             </div>
             
             <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold mb-6">
-              Seu <span className="text-primary">Parceiro</span> de Confiança em Questões Jurídicas
+              <span className="text-primary">O Escritório</span>
             </h2>
             
+            <p className="text-muted-foreground leading-relaxed mb-4">
+              Com mais de 25 anos de existência, somos um escritório de advocacia de notório respeito, cujo compromisso precípuo é a oferta de serviços jurídicos com padrão de qualidade, excelência e profissionalismo.
+            </p>
             <p className="text-muted-foreground leading-relaxed mb-8">
-              Nossas áreas de atuação incluem, mas não se limitam a, direito civil, criminal, de família, empresarial e trabalhista. Com uma abordagem personalizada, oferecemos soluções jurídicas que atendem às necessidades específicas de cada cliente.
+              Com inovação e pioneirismo, conseguimos aprimorar o intercâmbio entre a academia e a advocacia, com a especialização dos profissionais e no incentivo da busca de novos conhecimentos e aperfeiçoamento contínuo.
             </p>
 
             <ul className="space-y-4 mb-8">
@@ -49,18 +52,18 @@ const AboutSection = () => {
 
             <div className="flex items-center gap-6 pt-4 border-t border-border">
               <div className="text-center">
-                <span className="block text-4xl font-serif font-bold text-primary">10+</span>
+                <span className="block text-4xl font-serif font-bold text-primary">25+</span>
                 <span className="text-sm text-muted-foreground">Anos de Experiência</span>
               </div>
               <div className="w-px h-12 bg-border" />
               <div className="text-center">
-                <span className="block text-4xl font-serif font-bold text-primary">500+</span>
-                <span className="text-sm text-muted-foreground">Casos Resolvidos</span>
+                <span className="block text-4xl font-serif font-bold text-primary">10+</span>
+                <span className="text-sm text-muted-foreground">Áreas de Atuação</span>
               </div>
               <div className="w-px h-12 bg-border" />
               <div className="text-center">
-                <span className="block text-4xl font-serif font-bold text-primary">98%</span>
-                <span className="text-sm text-muted-foreground">Satisfação</span>
+                <span className="block text-4xl font-serif font-bold text-primary">100%</span>
+                <span className="text-sm text-muted-foreground">Comprometimento</span>
               </div>
             </div>
           </div>
