@@ -1,4 +1,5 @@
 import { Star } from "lucide-react";
+import { motion } from "framer-motion";
 
 const MarqueeSection = () => {
   const items = [
@@ -11,7 +12,12 @@ const MarqueeSection = () => {
   ];
 
   return (
-    <section className="py-6 bg-secondary border-y border-border overflow-hidden">
+    <motion.section 
+      className="py-6 bg-secondary border-y border-border overflow-hidden"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.8, delay: 0.5 }}
+    >
       <div className="marquee">
         <div className="marquee-content">
           {[...items, ...items].map((item, index) => (
@@ -24,7 +30,7 @@ const MarqueeSection = () => {
           ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
