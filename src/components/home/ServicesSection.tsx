@@ -10,6 +10,9 @@ import {
   Vote,
   Receipt
 } from "lucide-react";
+import { Link } from "react-router-dom";
+import ScrollReveal from "@/components/animations/ScrollReveal";
+import { StaggerContainer, StaggerItem } from "@/components/animations/StaggerContainer";
 
 const ServicesSection = () => {
   const services = [
@@ -79,7 +82,7 @@ const ServicesSection = () => {
     <section className="py-20 lg:py-32 bg-secondary">
       <div className="container mx-auto px-6">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <ScrollReveal className="text-center max-w-3xl mx-auto mb-16">
           <div className="section-label justify-center mb-4">
             Áreas de Atuação
           </div>
@@ -89,31 +92,32 @@ const ServicesSection = () => {
           <p className="text-muted-foreground leading-relaxed">
             Oferecemos assistência em diversas áreas do Direito, desenvolvendo relacionamentos de confiança mútua em decisões estratégicas, envolvendo questões legais sofisticadas, complexas ou tecnicamente desafiadoras.
           </p>
-        </div>
+        </ScrollReveal>
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+        <StaggerContainer staggerDelay={0.06} className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
           {services.map((service, index) => (
-            <a 
-              key={index} 
-              href={`/areas/${service.slug}`}
-              className="card-premium group text-center cursor-pointer"
-            >
-              {/* Icon */}
-              <div className="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-colors">
-                <service.icon className="w-7 h-7 text-primary" />
-              </div>
+            <StaggerItem key={index}>
+              <Link 
+                to={`/areas/${service.slug}`}
+                className="card-premium group text-center cursor-pointer block h-full"
+              >
+                {/* Icon */}
+                <div className="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-colors">
+                  <service.icon className="w-7 h-7 text-primary" />
+                </div>
 
-              {/* Content */}
-              <h3 className="font-serif text-lg font-semibold mb-3 text-foreground group-hover:text-primary transition-colors">
-                {service.title}
-              </h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">
-                {service.description}
-              </p>
-            </a>
+                {/* Content */}
+                <h3 className="font-serif text-lg font-semibold mb-3 text-foreground group-hover:text-primary transition-colors">
+                  {service.title}
+                </h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  {service.description}
+                </p>
+              </Link>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerContainer>
       </div>
     </section>
   );
