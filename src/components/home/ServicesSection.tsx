@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { 
   Scale, Building2, Gavel, Users, Briefcase, 
   ShieldCheck, Home, FileText, Vote, Receipt,
-  ChevronRight, Download
+  ChevronRight, Coins
 } from 'lucide-react';
 
 /**
@@ -24,6 +24,7 @@ const ServicesSection = () => {
     { icon: Receipt, title: "Previdenciário", cat: "pessoal", slug: "prev" },
     { icon: Vote, title: "Eleitoral", cat: "contencioso", slug: "vote" },
     { icon: Gavel, title: "Penal", cat: "contencioso", slug: "crime" },
+    { icon: Coins, title: "Tributário", cat: "empresarial", slug: "tax" },
   ];
 
   // Filtro inteligente
@@ -32,7 +33,7 @@ const ServicesSection = () => {
     : services.filter(s => s.cat === filter);
 
   return (
-    <section className="py-24 bg-slate-950">
+    <section id="areas" className="py-24 bg-slate-950">
       <div className="container mx-auto px-6 text-center">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
@@ -40,7 +41,7 @@ const ServicesSection = () => {
           className="mb-16"
         >
           <h2 className="font-serif text-5xl font-bold text-white mb-6">
-            Especialidades <span className="text-amber-500 italic">Estratégicas</span>
+            Especialidades <span className="text-primary italic">Estratégicas</span>
           </h2>
           <div className="flex flex-wrap justify-center gap-4 mt-8">
              {['all', 'empresarial', 'pessoal', 'contencioso'].map(tag => (
@@ -48,7 +49,7 @@ const ServicesSection = () => {
                   key={tag}
                   onClick={() => setFilter(tag)}
                   className={`px-6 py-2 rounded-full border text-[10px] font-bold uppercase tracking-widest transition-all ${
-                    filter === tag ? 'bg-amber-600 border-amber-600 text-black' : 'border-white/10 text-slate-500 hover:border-amber-500'
+                    filter === tag ? 'bg-primary border-primary text-black' : 'border-white/10 text-slate-500 hover:border-primary'
                   }`}
                 >
                   {tag}
@@ -65,14 +66,14 @@ const ServicesSection = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ delay: i * 0.05 }}
               whileHover={{ y: -10 }}
-              className="bg-white/5 p-8 rounded-sm border border-white/5 hover:border-amber-600/30 transition-all cursor-pointer group"
+              className="bg-white/5 p-8 rounded-sm border border-white/5 hover:border-primary/30 transition-all cursor-pointer group"
             >
-              <div className="w-12 h-12 bg-amber-600/10 flex items-center justify-center rounded-lg mb-6 group-hover:bg-amber-600 transition-colors">
-                 <service.icon size={24} className="text-amber-500 group-hover:text-black" />
+              <div className="w-12 h-12 bg-primary/10 flex items-center justify-center rounded-lg mb-6 group-hover:bg-primary transition-colors">
+                 <service.icon size={24} className="text-primary group-hover:text-black" />
               </div>
               <h3 className="font-serif text-lg font-bold text-white mb-2">{service.title}</h3>
               <p className="text-[10px] text-slate-500 uppercase tracking-widest mb-4">Clique para ver detalhes</p>
-              <ChevronRight size={14} className="text-amber-600 opacity-0 group-hover:opacity-100 transition-all translate-x-[-10px] group-hover:translate-x-0" />
+              <ChevronRight size={14} className="text-primary opacity-0 group-hover:opacity-100 transition-all translate-x-[-10px] group-hover:translate-x-0" />
             </motion.div>
           ))}
         </div>

@@ -39,10 +39,10 @@ const Contato = () => {
   };
 
   const contactInfo = [
-    { icon: MapPin, title: "Endereço", info: "Av. Paulista, 1000\nBela Vista, São Paulo - SP" },
-    { icon: Phone, title: "Telefone", info: "(11) 3245-6789" },
-    { icon: Mail, title: "E-mail", info: "contato@advocacia.com.br" },
-    { icon: Clock, title: "Horário", info: "Seg - Sex: 9h às 18h" },
+    { icon: MapPin, title: "Endereço", info: "Ourinhos - SP" },
+    { icon: Phone, title: "Telefone", info: "(14) 3324-3605" },
+    { icon: Mail, title: "E-mail", info: "contato@santarosamello.adv.br" },
+    { icon: Clock, title: "Horário", info: "Seg - Sex: 8h às 18h" },
   ];
 
   return (

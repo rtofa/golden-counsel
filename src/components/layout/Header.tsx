@@ -1,7 +1,8 @@
 
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { MapPin, Mail, Phone, Menu, X, ArrowRight, Download, ShieldCheck } from 'lucide-react';
+import logoLight from '@/assets/logo/03 MARCA _ SantaRosa Mello.png';
 
 /**
  * Premium Interactive Header Component
@@ -10,6 +11,8 @@ import { MapPin, Mail, Phone, Menu, X, ArrowRight, Download, ShieldCheck } from 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,23 +23,31 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Função de Exportação de Dados / Portfólio
-  const handleExportPortfolio = () => {
-    const date = new Date().toLocaleDateString('pt-BR');
-    console.log(`Gerando portfólio digital SantaRosa Mello - ${date}`);
-    
-    // Simulação de download
-    const link = document.createElement('a');
-    link.href = '#';
-    alert(`Preparando download do Dossiê Institucional (PDF)... \nData: ${date}`);
+  // Função de scroll suave para as seções
+  const scrollToSection = (sectionId: string) => {
+    if (location.pathname !== '/') {
+      navigate('/');
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+    } else {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+    setIsMobileMenuOpen(false);
   };
 
   const navLinks = [
-    { name: "Início", path: "/" },
-    { name: "A Firma", path: "/sobre" },
-    { name: "Áreas de Atuação", path: "/areas" },
-    { name: "Casos", path: "/casos" },
-    { name: "Blog", path: "/blog" },
+    { name: "Início", sectionId: "inicio" },
+    { name: "O Escritório", sectionId: "escritorio" },
+    { name: "Áreas de Atuação", sectionId: "areas" },
+    { name: "Equipe", sectionId: "equipe" },
+    { name: "Depoimentos", sectionId: "depoimentos" },
   ];
 
   return (
@@ -53,17 +64,11 @@ const Header = () => {
         
         {/* Branding Area */}
         <Link to="/" className="flex items-center gap-4 group">
-          <div className="w-10 h-10 bg-amber-600 rounded-full flex items-center justify-center p-2 group-hover:bg-white transition-all duration-500 shadow-lg shadow-amber-600/20">
-             <span className="text-slate-950 font-serif font-black text-xl">S</span>
-          </div>
-          <div className="flex flex-col">
-            <span className="font-serif text-lg font-bold tracking-tight text-white leading-none">
-              SantaRosa Mello
-            </span>
-            <span className="text-[7px] tracking-[4px] text-amber-500 font-bold uppercase mt-1">
-              Advogados Associados
-            </span>
-          </div>
+          <img 
+            src={logoLight} 
+            alt="SantaRosa Mello Advogados" 
+            className="h-12 w-auto object-contain"
+          />
         </Link>
 
         {/* Navigation - Center */}
@@ -71,10 +76,13 @@ const Header = () => {
           <ul className="flex items-center gap-10">
             {navLinks.map((link) => (
               <li key={link.name} className="relative group">
-                <Link to={link.path} className="text-[11px] font-bold uppercase tracking-[2px] text-slate-400 hover:text-white transition-all">
+                <button 
+                  onClick={() => scrollToSection(link.sectionId)} 
+                  className="text-[11px] font-bold uppercase tracking-[2px] text-slate-400 hover:text-white transition-all"
+                >
                   {link.name}
-                </Link>
-                <span className="absolute -bottom-1 left-1/2 w-0 h-[2px] bg-amber-600 -translate-x-1/2 group-hover:w-full transition-all duration-300"></span>
+                </button>
+                <span className="absolute -bottom-1 left-1/2 w-0 h-[2px] bg-primary -translate-x-1/2 group-hover:w-full transition-all duration-300"></span>
               </li>
             ))}
           </ul>
@@ -83,15 +91,11 @@ const Header = () => {
         {/* Action Buttons */}
         <div className="hidden lg:flex items-center gap-6">
           <button 
-            onClick={handleExportPortfolio}
-            className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[2px] text-slate-400 hover:text-amber-500 transition-colors"
+            onClick={() => scrollToSection('contato')}
+            className="bg-primary hover:bg-white text-slate-950 px-6 py-2.5 text-[11px] font-bold uppercase tracking-[2px] rounded-full transition-all flex items-center gap-2 shadow-xl shadow-primary/10"
           >
-            <Download size={16} /> Exportar
-          </button>
-          
-          <Link to="/contato" className="bg-amber-600 hover:bg-white text-slate-950 px-6 py-2.5 text-[11px] font-bold uppercase tracking-[2px] rounded-full transition-all flex items-center gap-2 shadow-xl shadow-amber-600/10">
             Contato <ArrowRight size={14} />
-          </Link>
+          </button>
         </div>
 
         {/* Mobile Toggle UI */}
@@ -112,23 +116,22 @@ const Header = () => {
            <ul className="space-y-8">
              {navLinks.map((link) => (
                <li key={link.name}>
-                 <Link 
-                    to={link.path} 
-                    className="text-3xl font-serif text-white hover:text-amber-500"
-                    onClick={() => setIsMobileMenuOpen(false)}
+                 <button 
+                    onClick={() => scrollToSection(link.sectionId)}
+                    className="text-3xl font-serif text-white hover:text-primary"
                  >
                    {link.name}
-                 </Link>
+                 </button>
                </li>
              ))}
            </ul>
            <div className="pt-10 flex flex-col gap-4">
-              <button onClick={handleExportPortfolio} className="text-amber-500 font-bold uppercase tracking-widest text-sm">
-                 Exportar Dossiê
+              <button 
+                onClick={() => scrollToSection('contato')} 
+                className="bg-primary text-slate-950 py-5 font-bold uppercase tracking-widest"
+              >
+                 Fale Conosco
               </button>
-              <Link to="/contato" className="bg-amber-600 text-slate-950 py-5 font-bold uppercase tracking-widest">
-                 Atendimento Gratuito
-              </Link>
            </div>
         </div>
       )}

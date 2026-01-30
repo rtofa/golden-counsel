@@ -55,13 +55,16 @@ const Sobre = () => {
                 Com mais de 25 anos de existência, somos um escritório de advocacia de notório respeito, cujo compromisso precípuo é a oferta de serviços jurídicos com padrão de qualidade, excelência e profissionalismo.
               </p>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                Com inovação e pioneirismo, o escritório conseguiu aprimorar o intercâmbio entre a academia e a advocacia, com a especialização dos profissionais e no incentivo da busca de novos conhecimentos e aperfeiçoamento contínuo.
+                Com inovação e pioneirismo, o escritório conseguiu, ao longo dos anos, aprimorar o intercâmbio entre a academia e a advocacia, com a especialização dos profissionais e no incentivo da busca de novos conhecimentos e aperfeiçoamento contínuo dos trabalhos jurídicos desenvolvidos.
+              </p>
+              <p className="text-muted-foreground leading-relaxed mb-6">
+                Sua atuação diversificada e excelência de seus profissionais, oferece assistência em diversas áreas do Direito, o que lhes permite desenvolver relacionamentos de confiança mútua, tanto no dia a dia como em decisões estratégicas, envolvendo questões legais sofisticadas, complexas ou tecnicamente desafiadoras.
               </p>
               <p className="text-muted-foreground leading-relaxed mb-8">
-                Nossa atuação diversificada e excelência de nossos profissionais oferece assistência em diversas áreas do Direito, permitindo desenvolver relacionamentos de confiança mútua em decisões estratégicas, envolvendo questões legais sofisticadas, complexas ou tecnicamente desafiadoras.
+                Assim, Santarosa Mello Advogados Associados desenvolveu-se como um escritório independente, de atuação diversificada, especializado em operações multidisciplinares e capaz de traduzir o ambiente legal brasileiro em benefício de seus clientes.
               </p>
               <ul className="space-y-3">
-                {["Mais de 25 anos de experiência", "Intercâmbio entre academia e advocacia", "Equipe multidisciplinar especializada", "Atuação em todo o território nacional"].map((item, i) => (
+                {["Mais de 25 anos de existência e notório respeito", "Intercâmbio entre academia e advocacia", "Equipes adaptadas às necessidades de cada projeto", "Advogados prontos e disponíveis quando e onde necessário"].map((item, i) => (
                   <li key={i} className="flex items-center gap-3">
                     <CheckCircle className="w-5 h-5 text-primary" />
                     <span className="text-foreground">{item}</span>
@@ -104,11 +107,14 @@ const Sobre = () => {
             <h2 className="font-serif text-3xl md:text-4xl font-semibold mb-6">
               Conheça Nossos <span className="text-primary">Sócios</span>
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Desde 2001, buscamos os melhores talentos para atender demandas pioneiras e complexas. Nosso foco são as pessoas.
+            <p className="text-muted-foreground max-w-3xl mx-auto mb-4">
+              Desde 2001, buscamos os melhores talentos para atender demandas pioneiras e complexas. Nossa equipe é dinâmica e entusiasmada: estudamos muito, trabalhamos duro e nos dedicamos de corpo e alma para garantir o sucesso dos nossos clientes, com soluções criativas, seguras e eficientes.
+            </p>
+            <p className="text-muted-foreground max-w-3xl mx-auto">
+              Acreditamos no aperfeiçoamento da sociedade pelo Direito. Acreditamos numa advocacia compromissada com a integridade, responsabilidade, excelência das soluções legais, satisfação de nossos clientes e realização pessoal de nossos integrantes.
             </p>
           </div>
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mt-12">
             {team.map((member, i) => (
               <div key={i} className="card-premium flex flex-col sm:flex-row items-center gap-6">
                 <img src={member.image} alt={member.name} className="w-32 h-32 object-cover rounded-full border-4 border-primary/20" />
