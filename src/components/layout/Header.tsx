@@ -1,19 +1,35 @@
-import { Link } from "react-router-dom";
-import { MapPin, Mail, Menu, X, ArrowRight } from "lucide-react";
-import { useState, useEffect } from "react";
-import logoSantarosa from "@/assets/logo-santarosa.jpg";
 
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { MapPin, Mail, Phone, Menu, X, ArrowRight, Download, ShieldCheck } from 'lucide-react';
+
+/**
+ * Premium Interactive Header Component
+ * SantaRosa Mello Advogados & Associados
+ */
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
+      // Ativa efeito de vidro e encolhimento após 50px de scroll
       setIsScrolled(window.scrollY > 50);
     };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Função de Exportação de Dados / Portfólio
+  const handleExportPortfolio = () => {
+    const date = new Date().toLocaleDateString('pt-BR');
+    console.log(`Gerando portfólio digital SantaRosa Mello - ${date}`);
+    
+    // Simulação de download
+    const link = document.createElement('a');
+    link.href = '#';
+    alert(`Preparando download do Dossiê Institucional (PDF)... \nData: ${date}`);
+  };
 
   const navLinks = [
     { name: "Início", path: "/" },
@@ -21,104 +37,104 @@ const Header = () => {
     { name: "Áreas de Atuação", path: "/areas" },
     { name: "Casos", path: "/casos" },
     { name: "Blog", path: "/blog" },
-    { name: "Contato", path: "/contato" },
   ];
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "bg-background/95 backdrop-blur-md shadow-lg" : "bg-transparent"}`}>
-      {/* Top Bar */}
-      <div className="border-b border-border/50">
-        <div className="container mx-auto px-6 py-2 flex flex-wrap justify-between items-center text-sm">
-          <p className="text-muted-foreground hidden md:block">
-            O Equilíbrio da Lei com a Excelência da Liderança
-          </p>
-          <div className="flex items-center gap-6 text-muted-foreground ml-auto">
-            <a href="tel:+551433243605" className="flex items-center gap-2 hover:text-primary transition-colors">
-              <span className="hidden sm:inline">(14) 3324-3605</span>
-            </a>
-            <a href="#" className="flex items-center gap-2 hover:text-primary transition-colors">
-              <MapPin className="w-4 h-4 text-primary" />
-              <span className="hidden sm:inline">Rua Arlindo Luz, 633 - Ourinhos/SP</span>
-            </a>
-            <a href="mailto:contato@santarosamello.adv.br" className="flex items-center gap-2 hover:text-primary transition-colors">
-              <Mail className="w-4 h-4 text-primary" />
-              <span className="hidden sm:inline">contato@santarosamello.adv.br</span>
-            </a>
+    <header className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-700 flex justify-center ${
+      isScrolled ? "pt-4" : "pt-8"
+    }`}>
+      
+      {/* Floating Island Header */}
+      <div className={`transition-all duration-500 px-6 py-3 flex items-center justify-between mx-4 max-w-7xl w-full border ${
+        isScrolled 
+        ? "bg-slate-950/80 backdrop-blur-2xl border-white/10 rounded-full shadow-[0_20px_50px_rgba(0,0,0,0.5)]" 
+        : "bg-transparent border-transparent"
+      }`}>
+        
+        {/* Branding Area */}
+        <Link to="/" className="flex items-center gap-4 group">
+          <div className="w-10 h-10 bg-amber-600 rounded-full flex items-center justify-center p-2 group-hover:bg-white transition-all duration-500 shadow-lg shadow-amber-600/20">
+             <span className="text-slate-950 font-serif font-black text-xl">S</span>
           </div>
-        </div>
-      </div>
+          <div className="flex flex-col">
+            <span className="font-serif text-lg font-bold tracking-tight text-white leading-none">
+              SantaRosa Mello
+            </span>
+            <span className="text-[7px] tracking-[4px] text-amber-500 font-bold uppercase mt-1">
+              Advogados Associados
+            </span>
+          </div>
+        </Link>
 
-      {/* Main Navigation */}
-      <nav className="container mx-auto px-6 py-4">
-        <div className="flex justify-between items-center">
-          {/* Logo */}
-          <Link to="/" className="flex items-center gap-3">
-            <img src={logoSantarosa} alt="SantaRosa Mello" className="h-12 w-auto" />
-            <div className="hidden sm:block">
-              <span className="font-serif text-lg font-semibold text-foreground">SantaRosa Mello</span>
-              <p className="text-xs text-muted-foreground tracking-widest">ADVOGADOS E ASSOCIADOS</p>
-            </div>
-          </Link>
-
-          {/* Desktop Navigation */}
-          <ul className="hidden lg:flex items-center gap-8">
+        {/* Navigation - Center */}
+        <nav className="hidden lg:flex items-center">
+          <ul className="flex items-center gap-10">
             {navLinks.map((link) => (
-              <li key={link.name}>
-                <Link
-                  to={link.path}
-                  className="text-foreground/90 hover:text-primary font-medium transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary hover:after:w-full after:transition-all"
-                >
+              <li key={link.name} className="relative group">
+                <Link to={link.path} className="text-[11px] font-bold uppercase tracking-[2px] text-slate-400 hover:text-white transition-all">
                   {link.name}
                 </Link>
+                <span className="absolute -bottom-1 left-1/2 w-0 h-[2px] bg-amber-600 -translate-x-1/2 group-hover:w-full transition-all duration-300"></span>
               </li>
             ))}
           </ul>
+        </nav>
 
-          {/* CTA Button */}
-          <div className="hidden lg:flex items-center gap-4">
-            <Link to="/contato" className="btn-primary group">
-              Atendimento Gratuito
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </Link>
-          </div>
-
-          {/* Mobile Menu Toggle */}
-          <button
-            className="lg:hidden text-foreground p-2"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="Toggle menu"
+        {/* Action Buttons */}
+        <div className="hidden lg:flex items-center gap-6">
+          <button 
+            onClick={handleExportPortfolio}
+            className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[2px] text-slate-400 hover:text-amber-500 transition-colors"
           >
-            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            <Download size={16} /> Exportar
           </button>
+          
+          <Link to="/contato" className="bg-amber-600 hover:bg-white text-slate-950 px-6 py-2.5 text-[11px] font-bold uppercase tracking-[2px] rounded-full transition-all flex items-center gap-2 shadow-xl shadow-amber-600/10">
+            Contato <ArrowRight size={14} />
+          </Link>
         </div>
 
-        {/* Mobile Navigation */}
-        {isMobileMenuOpen && (
-          <div className="lg:hidden mt-4 pb-4 border-t border-border pt-4 animate-fade-in">
-            <ul className="flex flex-col gap-4">
-              {navLinks.map((link) => (
-                <li key={link.name}>
-                  <Link
-                    to={link.path}
-                    className="text-foreground/90 hover:text-primary font-medium transition-colors block py-2"
+        {/* Mobile Toggle UI */}
+        <button 
+          className="lg:hidden text-white p-2" 
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        >
+          {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+        </button>
+      </div>
+      
+      {/* Mobile Sidebar Navigation */}
+      {isMobileMenuOpen && (
+        <div className="lg:hidden fixed inset-0 bg-slate-950/95 backdrop-blur-3xl z-[110] p-8 flex flex-col justify-center gap-12 text-center animate-in fade-in slide-in-from-bottom duration-500">
+           <button className="absolute top-8 right-8 text-white" onClick={() => setIsMobileMenuOpen(false)}>
+              <X size={32} />
+           </button>
+           <ul className="space-y-8">
+             {navLinks.map((link) => (
+               <li key={link.name}>
+                 <Link 
+                    to={link.path} 
+                    className="text-3xl font-serif text-white hover:text-amber-500"
                     onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-              <li className="pt-2">
-                <Link to="/contato" className="btn-primary w-full justify-center" onClick={() => setIsMobileMenuOpen(false)}>
-                  Atendimento Gratuito
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
-              </li>
-            </ul>
-          </div>
-        )}
-      </nav>
+                 >
+                   {link.name}
+                 </Link>
+               </li>
+             ))}
+           </ul>
+           <div className="pt-10 flex flex-col gap-4">
+              <button onClick={handleExportPortfolio} className="text-amber-500 font-bold uppercase tracking-widest text-sm">
+                 Exportar Dossiê
+              </button>
+              <Link to="/contato" className="bg-amber-600 text-slate-950 py-5 font-bold uppercase tracking-widest">
+                 Atendimento Gratuito
+              </Link>
+           </div>
+        </div>
+      )}
     </header>
   );
 };
 
 export default Header;
+                                

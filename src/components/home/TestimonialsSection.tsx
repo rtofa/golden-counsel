@@ -1,7 +1,6 @@
-import { Star, ArrowRight } from "lucide-react";
-import { Link } from "react-router-dom";
-import ScrollReveal from "@/components/animations/ScrollReveal";
-import { StaggerContainer, StaggerItem } from "@/components/animations/StaggerContainer";
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Star, Quote, ArrowUpRight } from 'lucide-react';
 import testimonial1 from "@/assets/testimonial-1.jpg";
 import testimonial2 from "@/assets/testimonial-2.jpg";
 
@@ -10,86 +9,57 @@ const TestimonialsSection = () => {
     {
       name: "Carlos Mendes",
       role: "Empresário",
-      image: testimonial1,
-      text: "A equipe da Advocacia foi fundamental para resolver uma questão empresarial complexa. Profissionalismo e dedicação em cada etapa do processo. Recomendo fortemente.",
-      rating: 5,
+      text: "A equipe da Advocacia foi fundamental para resolver uma questão empresarial complexa. Profissionalismo e dedicação em cada etapa do processo.",
+      image: testimonial1
     },
     {
       name: "Fernanda Lima",
       role: "Diretora Executiva",
-      image: testimonial2,
-      text: "Excelente atendimento e resultados surpreendentes. A atenção aos detalhes e o comprometimento com o cliente fazem toda a diferença. Serviço de primeira qualidade.",
-      rating: 5,
-    },
+      text: "Excelente atendimento e resultados surpreendentes. A atenção aos detalhes e o comprometimento fazem toda a diferença.",
+      image: testimonial2
+    }
   ];
 
   return (
-    <section className="py-20 lg:py-32">
+    <section className="py-24 bg-slate-950 overflow-hidden relative">
       <div className="container mx-auto px-6">
-        {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-12">
-          <ScrollReveal>
-            <div>
-              <div className="section-label mb-4">
-                Depoimentos
-              </div>
-              <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold">
-                O Que Nossos{" "}
-                <span className="text-primary">Clientes</span> Dizem
-              </h2>
-            </div>
-          </ScrollReveal>
-          <ScrollReveal delay={0.2} direction="right">
-            <Link to="/contato" className="btn-outline shrink-0 group">
-              Orientação Especializada
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </Link>
-          </ScrollReveal>
-        </div>
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          className="mb-16"
+        >
+          <span className="text-amber-500 font-bold uppercase tracking-[4px] text-xs">Depoimentos</span>
+          <h2 className="font-serif text-5xl font-bold mt-4">Vozes de <span className="text-amber-600 italic">Confiança</span></h2>
+        </motion.div>
 
-        {/* Testimonials Grid */}
-        <StaggerContainer staggerDelay={0.15} className="grid lg:grid-cols-2 gap-8">
-          {testimonials.map((testimonial, index) => (
-            <StaggerItem key={index} direction={index === 0 ? "left" : "right"}>
-              <div className="card-premium flex flex-col md:flex-row gap-6">
-                {/* Content */}
-                <div className="flex-1">
-                  {/* Stars */}
-                  <div className="flex gap-1 mb-4">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="w-5 h-5 text-primary fill-primary" />
-                    ))}
+        <div className="grid lg:grid-cols-2 gap-10">
+          {testimonials.map((item, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.2 }}
+              className="relative p-12 bg-white/5 backdrop-blur-xl border border-white/10 group hover:border-amber-500/50 transition-all duration-500"
+            >
+              <Quote className="absolute top-10 right-10 w-20 h-20 text-amber-500/5" />
+              
+              <div className="flex flex-col md:flex-row gap-8 items-center relative z-10">
+                <img src={item.image} className="w-24 h-24 rounded-full object-cover border-2 border-amber-500/30" alt={item.name} />
+                
+                <div>
+                  <div className="flex gap-1 mb-4 text-amber-500">
+                    {[...Array(5)].map((_, i) => <Star key={i} size={14} fill="currentColor" />)}
                   </div>
-
-                  {/* Text */}
-                  <p className="text-muted-foreground italic leading-relaxed mb-6">
-                    "{testimonial.text}"
-                  </p>
-
-                  {/* Author */}
+                  <p className="text-slate-300 italic text-lg leading-relaxed mb-6">"{item.text}"</p>
                   <div>
-                    <h4 className="font-serif text-lg font-semibold text-primary">
-                      {testimonial.name}
-                    </h4>
-                    <p className="text-sm text-muted-foreground">
-                      {testimonial.role}
-                    </p>
+                    <h4 className="font-serif text-xl font-bold text-white">{item.name}</h4>
+                    <p className="text-amber-500 text-[10px] font-bold uppercase tracking-widest">{item.role}</p>
                   </div>
                 </div>
-
-                {/* Image */}
-                <div className="relative shrink-0">
-                  <div className="absolute -inset-4 bg-primary/10 rounded-full blur-2xl" />
-                  <img
-                    src={testimonial.image}
-                    alt={testimonial.name}
-                    className="relative w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-card"
-                  />
-                </div>
               </div>
-            </StaggerItem>
+            </motion.div>
           ))}
-        </StaggerContainer>
+        </div>
       </div>
     </section>
   );

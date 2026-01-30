@@ -1,120 +1,96 @@
-import { Link } from "react-router-dom";
-import { MapPin, Phone, Mail, Facebook, Instagram, Linkedin, ArrowRight } from "lucide-react";
-import logoSantarosa from "@/assets/logo-santarosa.jpg";
+import React from 'react';
+import { motion } from 'framer-motion';
+import { 
+  MapPin, Phone, Mail, Linkedin, 
+  ArrowRight, ShieldCheck, ChevronRight 
+} from 'lucide-react';
 
+/**
+ * SantaRosa Mello - Footer & CTA Component
+ * Otimizado para React + Vite
+ */
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
+  const footerLinks = [
+    { name: "Início", path: "/" },
+    { name: "A Firma", path: "/sobre" },
+    { name: "Casos", path: "/casos" },
+    { name: "Contato", path: "/contato" }
+  ];
+
   return (
-    <footer className="bg-secondary border-t border-border">
-      {/* CTA Section */}
-      <div className="container mx-auto px-6 py-16">
-        <div className="bg-card border border-border rounded-2xl p-8 md:p-12 text-center">
-          <h2 className="font-serif text-3xl md:text-4xl font-semibold mb-4">
-            Precisa de orientação <span className="text-primary">jurídica</span>?
+    <footer className="bg-slate-950 border-t border-white/5 pt-24">
+      <div className="container mx-auto px-6">
+        
+        {/* CTA Section Inside Footer */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          className="bg-white/5 border border-white/10 rounded-2xl p-12 text-center mb-24"
+        >
+          <h2 className="font-serif text-4xl md:text-5xl font-bold mb-6">
+            Precisa de orientação <span className="text-amber-500 italic">jurídica</span>?
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto mb-8">
-            Nossa equipe está pronta para analisar seu caso com a excelência e ética que caracterizam o escritório SantaRosa Mello.
+          <p className="text-slate-400 max-w-xl mx-auto mb-10">
+            Nossa equipe está pronta para analisar seu caso com excelência.
           </p>
-          <Link to="/contato" className="btn-primary text-lg px-8 py-4 group">
-            Falar com um Especialista
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </Link>
-        </div>
-      </div>
+          <button className="bg-amber-600 hover:bg-white text-black px-10 py-4 font-bold uppercase tracking-widest text-xs transition-all flex items-center mx-auto gap-3">
+            Falar com Especialista <ArrowRight size={16} />
+          </button>
+        </motion.div>
 
-      {/* Main Footer */}
-      <div className="container mx-auto px-6 py-12 border-t border-border">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-          {/* Brand */}
-          <div className="lg:col-span-1">
-            <Link to="/" className="flex items-center gap-3 mb-6">
-              <img src={logoSantarosa} alt="SantaRosa Mello" className="h-12 w-auto" />
-              <div>
-                <span className="font-serif text-lg font-semibold text-foreground">SantaRosa Mello</span>
-                <p className="text-xs text-muted-foreground tracking-widest">ADVOGADOS E ASSOCIADOS</p>
-              </div>
-            </Link>
-            <p className="text-muted-foreground text-sm leading-relaxed mb-6">
-              Justiça Refinada e Equilíbrio do Legado. Combinamos tradição, autoridade e excelência com uma abordagem personalizada e ética.
+        {/* Main Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-20">
+          <div className="space-y-6">
+            <h3 className="font-serif text-2xl font-bold text-white">SantaRosa Mello</h3>
+            <p className="text-slate-500 text-sm leading-relaxed">
+              O equilíbrio da lei com a excelência da liderança. 
+              Tradição e retidão na prática de atos da sua vida e empresa.
             </p>
-            <div className="flex gap-4">
-              <a href="#" className="w-10 h-10 bg-card border border-border rounded-lg flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-all">
-                <Facebook className="w-5 h-5" />
-              </a>
-              <a href="#" className="w-10 h-10 bg-card border border-border rounded-lg flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-all">
-                <Instagram className="w-5 h-5" />
-              </a>
-              <a href="#" className="w-10 h-10 bg-card border border-border rounded-lg flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary transition-all">
-                <Linkedin className="w-5 h-5" />
-              </a>
+          </div>
+
+          <div>
+            <h4 className="text-white font-bold mb-6 uppercase tracking-widest text-xs">Explorar</h4>
+            <ul className="space-y-3">
+              {footerLinks.map(link => (
+                <li key={link.name}>
+                  <a href={link.path} className="text-slate-500 hover:text-amber-500 transition-colors text-sm">{link.name}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-white font-bold mb-6 uppercase tracking-widest text-xs">Áreas</h4>
+            <ul className="space-y-3">
+              <li className="text-slate-500 text-sm">Direito Empresarial</li>
+              <li className="text-slate-500 text-sm">Direito Civil</li>
+              <li className="text-slate-500 text-sm">Família e Sucessões</li>
+            </ul>
+          </div>
+
+          <div className="space-y-4">
+            <h4 className="text-white font-bold mb-6 uppercase tracking-widest text-xs">Contato</h4>
+            <div className="flex items-center gap-3 text-slate-500">
+              <MapPin size={16} className="text-amber-500" />
+              <span className="text-xs">Ourinhos - SP</span>
             </div>
-          </div>
-
-          {/* Quick Links */}
-          <div>
-            <h3 className="font-serif text-lg font-semibold mb-6 text-foreground">Links Rápidos</h3>
-            <ul className="space-y-3">
-              {["Início", "A Firma", "Casos", "Blog", "Contato"].map((item) => (
-                <li key={item}>
-                  <Link to={`/${item === "Início" ? "" : item.toLowerCase().replace(" ", "-")}`} className="text-muted-foreground hover:text-primary transition-colors text-sm">
-                    {item}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Practice Areas */}
-          <div>
-            <h3 className="font-serif text-lg font-semibold mb-6 text-foreground">Áreas de Atuação</h3>
-            <ul className="space-y-3">
-              {["Direito Civil", "Direito Administrativo", "Direito Empresarial", "Família e Sucessões", "Direito do Trabalho", "Direito Penal", "Direito Tributário"].map((item) => (
-                <li key={item}>
-                  <span className="text-muted-foreground text-sm">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Contact */}
-          <div>
-            <h3 className="font-serif text-lg font-semibold mb-6 text-foreground">Contato</h3>
-            <ul className="space-y-4">
-              <li className="flex items-start gap-3">
-                <MapPin className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-                <span className="text-muted-foreground text-sm">
-                  Rua Arlindo Luz, 633 - Centro<br />
-                  Ourinhos - SP<br />
-                  CEP: 19900-011
-                </span>
-              </li>
-              <li className="flex items-center gap-3">
-                <Phone className="w-5 h-5 text-primary shrink-0" />
-                <a href="tel:+551433243605" className="text-muted-foreground hover:text-primary text-sm transition-colors">
-                  (14) 3324-3605
-                </a>
-              </li>
-              <li className="flex items-center gap-3">
-                <Mail className="w-5 h-5 text-primary shrink-0" />
-                <a href="mailto:contato@santarosamello.adv.br" className="text-muted-foreground hover:text-primary text-sm transition-colors">
-                  contato@santarosamello.adv.br
-                </a>
-              </li>
-            </ul>
+            <div className="flex items-center gap-3 text-slate-500">
+              <Phone size={16} className="text-amber-500" />
+              <span className="text-xs font-bold">(14) 3324-3605</span>
+            </div>
           </div>
         </div>
-      </div>
 
-      {/* Bottom Bar */}
-      <div className="border-t border-border">
-        <div className="container mx-auto px-6 py-6">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
-            <p>© {currentYear} SantaRosa Mello Advogados e Associados. Todos os direitos reservados.</p>
-            <div className="flex gap-6">
-              <Link to="/privacidade" className="hover:text-primary transition-colors">Política de Privacidade</Link>
-              <Link to="/termos" className="hover:text-primary transition-colors">Termos de Uso</Link>
-            </div>
+        {/* Footer Bottom */}
+        <div className="border-t border-white/5 py-8 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-[10px] text-slate-600 uppercase tracking-widest">
+            © {currentYear} SantaRosa Mello. Todos os direitos reservados.
+          </p>
+          <div className="flex gap-8">
+            <a href="#" className="text-[10px] text-slate-600 hover:text-white uppercase tracking-widest">Políticas</a>
+            <a href="#" className="text-[10px] text-slate-600 hover:text-white uppercase tracking-widest">Termos</a>
           </div>
         </div>
       </div>
