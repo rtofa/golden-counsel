@@ -1,60 +1,67 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Star, Quote, ArrowUpRight } from 'lucide-react';
-import testimonial1 from "@/assets/testimonial-1.jpg";
-import testimonial2 from "@/assets/testimonial-2.jpg";
+import { Star, Quote } from 'lucide-react';
 
 const TestimonialsSection = () => {
   const testimonials = [
     {
-      name: "Carlos Mendes",
-      role: "Empresário",
-      text: "A equipe da Advocacia foi fundamental para resolver uma questão empresarial complexa. Profissionalismo e dedicação em cada etapa do processo.",
-      image: testimonial1
+      name: "R.A.S.",
+      role: "Cliente Empresarial",
+      text: "A equipe do escritório SantaRosa Mello foi fundamental para resolver uma questão empresarial complexa. Profissionalismo e dedicação em cada etapa do processo. Recomendo a todos que precisam de assessoria jurídica de qualidade.",
+      initials: "RS"
     },
     {
-      name: "Fernanda Lima",
-      role: "Diretora Executiva",
-      text: "Excelente atendimento e resultados surpreendentes. A atenção aos detalhes e o comprometimento fazem toda a diferença.",
-      image: testimonial2
+      name: "M.C.L.",
+      role: "Cliente Pessoa Física",
+      text: "Excelente atendimento e resultados surpreendentes em minha causa de família. A atenção aos detalhes, a empatia e o comprometimento fazem toda a diferença. Advogados que realmente se importam.",
+      initials: "MC"
+    },
+    {
+      name: "J.P.B.",
+      role: "Diretor de Empresa",
+      text: "Trabalhamos com o escritório há mais de 10 anos em questões trabalhistas e empresariais. Confiança, agilidade e conhecimento técnico impecável. Parceria que faz a diferença.",
+      initials: "JP"
     }
   ];
 
   return (
-    <section className="py-24 bg-slate-950 overflow-hidden relative">
+    <section id="depoimentos" className="py-24 bg-black overflow-hidden relative">
       <div className="container mx-auto px-6">
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           className="mb-16"
         >
-          <span className="text-amber-500 font-bold uppercase tracking-[4px] text-xs">Depoimentos</span>
-          <h2 className="font-serif text-5xl font-bold mt-4">Vozes de <span className="text-amber-600 italic">Confiança</span></h2>
+          <span className="text-primary font-bold uppercase tracking-[4px] text-xs">Depoimentos</span>
+          <h2 className="font-serif text-5xl font-bold mt-4">Vozes de <span className="text-primary italic">Confiança</span></h2>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-10">
+        <div className="grid lg:grid-cols-3 gap-8">
           {testimonials.map((item, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.2 }}
-              className="relative p-12 bg-white/5 backdrop-blur-xl border border-white/10 group hover:border-amber-500/50 transition-all duration-500"
+              transition={{ delay: i * 0.15 }}
+              className="relative p-10 bg-white/5 backdrop-blur-xl border border-white/10 group hover:border-primary/50 transition-all duration-500 rounded-xl"
             >
-              <Quote className="absolute top-10 right-10 w-20 h-20 text-amber-500/5" />
+              <Quote className="absolute top-8 right-8 w-16 h-16 text-primary/10" />
               
-              <div className="flex flex-col md:flex-row gap-8 items-center relative z-10">
-                <img src={item.image} className="w-24 h-24 rounded-full object-cover border-2 border-amber-500/30" alt={item.name} />
+              <div className="flex flex-col relative z-10">
+                {/* Avatar com iniciais */}
+                <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 border-2 border-primary/30 flex items-center justify-center mb-6">
+                  <span className="text-primary font-serif text-xl font-bold">{item.initials}</span>
+                </div>
                 
-                <div>
-                  <div className="flex gap-1 mb-4 text-amber-500">
-                    {[...Array(5)].map((_, i) => <Star key={i} size={14} fill="currentColor" />)}
-                  </div>
-                  <p className="text-slate-300 italic text-lg leading-relaxed mb-6">"{item.text}"</p>
-                  <div>
-                    <h4 className="font-serif text-xl font-bold text-white">{item.name}</h4>
-                    <p className="text-amber-500 text-[10px] font-bold uppercase tracking-widest">{item.role}</p>
-                  </div>
+                <div className="flex gap-1 mb-4 text-primary">
+                  {[...Array(5)].map((_, i) => <Star key={i} size={12} fill="currentColor" />)}
+                </div>
+                
+                <p className="text-slate-300 italic text-base leading-relaxed mb-6 flex-1">"{item.text}"</p>
+                
+                <div className="pt-4 border-t border-white/10">
+                  <h4 className="font-serif text-lg font-bold text-white">{item.name}</h4>
+                  <p className="text-primary text-[10px] font-bold uppercase tracking-widest">{item.role}</p>
                 </div>
               </div>
             </motion.div>
