@@ -24,8 +24,20 @@ const Sobre = () => {
   ];
 
   const team = [
-    { name: "André Luis Camargo Mello", role: "Sócio Fundador", oab: "OAB/SP 170.033", email: "andremello@santarosamello.adv.br", image: team1 },
-    { name: "Eliana Santarosa Mello", role: "Sócia Fundadora", oab: "OAB/SP 185.465", email: "eliana@santarosamello.adv.br", image: team2 },
+    { 
+      name: "André Luis Camargo Mello", 
+      role: "Sócio Fundador", 
+      oab: "OAB/SP 170.033", 
+      email: "andremello@santarosamello.adv.br", 
+      image: team1 
+    },
+    { 
+      name: "Eliana Santarosa Mello", 
+      role: "Sócia Fundadora", 
+      oab: "OAB/SP 185.465", 
+      email: "eliana@santarosamello.adv.br", 
+      image: team2 
+    },
   ];
 
   return (

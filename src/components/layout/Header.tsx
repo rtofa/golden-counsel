@@ -33,10 +33,9 @@ const Header = () => {
 
   const navLinks = [
     { name: "Início", path: "/" },
-    { name: "A Firma", path: "/sobre" },
-    { name: "Áreas de Atuação", path: "/areas" },
-    { name: "Casos", path: "/casos" },
-    { name: "Blog", path: "/blog" },
+    { name: "Estratégia", path: "/sobre" },
+    { name: "Resultados", path: "/areas" },
+    { name: "A Confiança", path: "/casos" },
   ];
 
   return (
@@ -82,12 +81,6 @@ const Header = () => {
 
         {/* Action Buttons */}
         <div className="hidden lg:flex items-center gap-6">
-          <button 
-            onClick={handleExportPortfolio}
-            className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[2px] text-slate-400 hover:text-amber-500 transition-colors"
-          >
-            <Download size={16} /> Exportar
-          </button>
           
           <Link to="/contato" className="bg-amber-600 hover:bg-white text-slate-950 px-6 py-2.5 text-[11px] font-bold uppercase tracking-[2px] rounded-full transition-all flex items-center gap-2 shadow-xl shadow-amber-600/10">
             Contato <ArrowRight size={14} />
