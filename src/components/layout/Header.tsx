@@ -58,7 +58,7 @@ const Header = () => {
       {/* Floating Island Header */}
       <div className={`transition-all duration-500 px-6 py-3 flex items-center justify-between mx-4 max-w-7xl w-full border ${
         isScrolled 
-        ? "bg-slate-950/80 backdrop-blur-2xl border-white/10 rounded-full shadow-[0_20px_50px_rgba(0,0,0,0.5)]" 
+        ? "bg-black/80 backdrop-blur-2xl border-white/10 rounded-full shadow-[0_20px_50px_rgba(0,0,0,0.5)]" 
         : "bg-transparent border-transparent"
       }`}>
         
@@ -109,7 +109,7 @@ const Header = () => {
       
       {/* Mobile Sidebar Navigation */}
       {isMobileMenuOpen && (
-        <div className="lg:hidden fixed inset-0 bg-slate-950/95 backdrop-blur-3xl z-[110] p-8 flex flex-col justify-center gap-12 text-center animate-in fade-in slide-in-from-bottom duration-500">
+        <div className="lg:hidden fixed inset-0 bg-black/95 backdrop-blur-3xl z-[110] p-8 flex flex-col justify-center gap-12 text-center animate-in fade-in slide-in-from-bottom duration-500">
            <button className="absolute top-8 right-8 text-white" onClick={() => setIsMobileMenuOpen(false)}>
               <X size={32} />
            </button>

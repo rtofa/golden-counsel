@@ -19,7 +19,7 @@ const AboutSection = () => {
   ];
 
   return (
-    <section id="escritorio" className="py-24 lg:py-32 bg-slate-950 overflow-hidden">
+    <section id="escritorio" className="py-24 lg:py-32 bg-black overflow-hidden">
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           

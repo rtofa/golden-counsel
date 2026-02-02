@@ -33,7 +33,7 @@ const ServicesSection = () => {
     : services.filter(s => s.cat === filter);
 
   return (
-    <section id="areas" className="py-24 bg-slate-950">
+    <section id="areas" className="py-24 bg-black">
       <div className="container mx-auto px-6 text-center">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}

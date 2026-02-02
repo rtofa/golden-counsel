@@ -11,13 +11,13 @@ const HeroSection = () => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 font-sans selection:bg-primary selection:text-black">
+    <div className="min-h-screen bg-black text-slate-100 font-sans selection:bg-primary selection:text-black">
       {/* HERO IMPACT SECTION (CENTERED TEXT) */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden" id="inicio">
         <div className="absolute inset-0 opacity-40">
            {/* Imagem de Fundo Dinâmica */}
            <img src={advogadoBg} className="w-full h-full object-cover" alt="Background" />
-           <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-transparent to-slate-950"></div>
+           <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black"></div>
         </div>
 
         <div className="container mx-auto px-6 relative z-10 text-center space-y-8">

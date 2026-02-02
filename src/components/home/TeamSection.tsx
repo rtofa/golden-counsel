@@ -27,7 +27,7 @@ export default function TeamSection() {
   ];
 
   return (
-    <section id="equipe" className="py-24 bg-slate-900">
+    <section id="equipe" className="py-24 bg-black">
       <div className="container mx-auto px-6">
         {/* Header */}
         <motion.div

@@ -30,7 +30,7 @@ const CasesSection = () => {
   };
 
   return (
-    <section className="py-24 bg-slate-950">
+    <section className="py-24 bg-black">
       <div className="container mx-auto px-6">
         
         {/* Header do Componente */}

@@ -28,7 +28,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-slate-950 border-t border-white/5 pt-24">
+    <footer className="bg-black border-t border-white/5 pt-24">
       <div className="container mx-auto px-6">
         
         {/* CTA Section Inside Footer */}
