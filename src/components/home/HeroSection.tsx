@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { ChevronRight } from 'lucide-react';
-import advogadoBg from "@/assets/advogado.png";
+import advogadoBg from "@/assets/sala.png";
 
 const HeroSection = () => {
   const scrollToSection = (sectionId: string) => {

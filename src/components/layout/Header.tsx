@@ -44,10 +44,9 @@ const Header = () => {
 
   const navLinks = [
     { name: "Início", sectionId: "inicio" },
-    { name: "O Escritório", sectionId: "escritorio" },
-    { name: "Áreas de Atuação", sectionId: "areas" },
-    { name: "Equipe", sectionId: "equipe" },
-    { name: "Depoimentos", sectionId: "depoimentos" },
+    { name: "Estratégias", sectionId: "areas" },
+    { name: "Resultados", sectionId: "resultados" },
+    { name: "A Confiança", sectionId: "confianca" },
   ];
 
   return (
